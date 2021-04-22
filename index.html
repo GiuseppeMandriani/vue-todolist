@@ -37,11 +37,18 @@
 
         <!-- LISTA COMPLETA TODO -->
         <section class="todos-container">
-            <ul>
+            <ul v-if="todos.length > 0">
 
-                <li class="todo" v-for="todo in todos">
-                    <span class="text">{{ todo.text }}</span>
-                    <i class="fas fa-times"></i>
+                <li class="todo" v-for="(todo,index) in todos">
+                    <span class="text"
+                        :class= "{completed: todo.completed}"
+                        @click ="updateStatus(index)"
+                    >{{ todo.text }}</span>
+                    <i class="fas fa-times"
+                        @click="removeTodo(index)"
+
+                    
+                    ></i>
                 </li>
 
                 <!-- Elementi per stilare -->
@@ -54,6 +61,8 @@
                     <i class="fas fa-times"></i>
                 </li> -->
             </ul>
+
+            <h2 v-else>Lista vuota</h2>
         </section>
 
     </div>

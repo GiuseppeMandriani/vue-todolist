@@ -26,6 +26,7 @@ const app = new Vue({
         addTodo(){
             // console.log('add new item');
 
+            // Verifico inserimento di testo
             if(this.newTodo !== ''){
                 this.todos.push({
                     text: this.newTodo,
@@ -39,6 +40,24 @@ const app = new Vue({
             this.$refs.todoInput.focus(); // Per far tornare il focus all'unput dopo averlo inserito
             }
         },
+
+        // Function per rimuovere elemento dalla lista tramite la 'X'
+        removeTodo(index){
+            console.log(index)
+            this.todos.splice(index, 1); // Prendo posizione ed elimino 1 elemento
+
+
+            // Eventualmente per ripristinare elemento dalla lista cancellato 
+    
+            // const deleted = this.todos.splice(index, 1)[0];
+            // console.log(deleted);
+        },
+
+        // Function per lo status di Update 
+        updateStatus(index){
+            this.todos[index].completed = ! this.todos[index].completed
+        },
+
     }
 });
     
