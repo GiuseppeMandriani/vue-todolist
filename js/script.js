@@ -6,6 +6,14 @@ const app = new Vue({
     el: '#app',
 
     data: {
+        images: [                   // Array delle immagini
+            './img/image1.jpg',
+            './img/image2.jpg',
+            './img/image3.jpg',
+            './img/image4.jpg',
+        ],
+        indexImages: 0,
+        intervalId: 0,
         todos:[
             {
                 text: 'Decidere cosa inserire',
@@ -23,6 +31,11 @@ const app = new Vue({
             text:'',
             index: null,
         }
+    },
+
+    mounted(){                  // MEtodo scatenato da solo, in un momento di vita dell'appilcazine
+        this.startLoop()                                // Creato quando viene generata l'istanza Vue
+
     },
 
     methods: {
@@ -88,7 +101,34 @@ const app = new Vue({
             this.editTodo.text = '';
             this.editTodo.index = null;
 
-        }
+        },
+
+        // Next Img Functions
+        nextImg(){
+            // console.log('click');
+            // this.indexImages += 1;     // Aumento valore per cambiare img
+
+            // Condizione per tornare all'indice 0
+
+            // A)
+
+            // if(this.indexImages > (this.images.length - 1)){
+            //     this.indexImages = 0;
+            // };
+
+            // B) Operatore ternario
+
+            this.indexImages = (this.indexImages == (this.images.length - 1)) ? 0 : this.indexImages + 1;
+
+        },
+
+        // Funzione per far partire il loop
+        startLoop(){
+            this.intervalId = setInterval(() =>{
+                this.nextImg();
+            }, 2000);
+
+        }, 
 
     }
 });
