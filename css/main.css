@@ -1,0 +1,29 @@
+/* GENERAL */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Blinker', sans-serif;
+}
+
+body{
+    font-size:16px;
+}
+
+/* LAYOUT */
+
+.container{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1rem;    /* Utile per situazione Mobile */
+
+}
+
+/* HEADER */
+
+.app-header{
+    margin: 50px 0;
+    text-align: center;
+}
+
+
