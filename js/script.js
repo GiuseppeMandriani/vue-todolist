@@ -18,6 +18,11 @@ const app = new Vue({
         ],
 
         newTodo:'',
+        editTodo: {
+            visibility: false,
+            text:'',
+            index: null,
+        }
     },
 
     methods: {
@@ -57,6 +62,33 @@ const app = new Vue({
         updateStatus(index){
             this.todos[index].completed = ! this.todos[index].completed
         },
+
+        // Function per mostrare l'edit 
+        showEdit(index){
+            this.editTodo.text = this.todos[index].text;
+            this.editTodo.index = index;
+            this.editTodo.visibility = true;
+            this.$refs.todoUp.focus();
+
+        },
+
+        // Function per modificare l'input dell'edit
+
+        updateTodo(){
+            console.log(this.editTodo);
+            this.todos[this.editTodo.index].text = this.editTodo.text;
+            this.closeEdit();
+
+        },
+
+        // Function per chiudere l'edit 
+        closeEdit(){
+            
+            this.editTodo.visibility = false;
+            this.editTodo.text = '';
+            this.editTodo.index = null;
+
+        }
 
     }
 });

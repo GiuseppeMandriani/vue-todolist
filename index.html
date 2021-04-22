@@ -44,11 +44,15 @@
                         :class= "{completed: todo.completed}"
                         @click ="updateStatus(index)"
                     >{{ todo.text }}</span>
-                    <i class="fas fa-times"
-                        @click="removeTodo(index)"
-
-                    
-                    ></i>
+                    <div class="icon">
+                        <i class="fas fa-pen"
+                            @click="showEdit(index)"
+                        
+                        ></i>
+                        <i class="fas fa-times"
+                            @click="removeTodo(index)"
+                        ></i>
+                    </div>
                 </li>
 
                 <!-- Elementi per stilare -->
@@ -63,6 +67,21 @@
             </ul>
 
             <h2 v-else>Lista vuota</h2>
+        </section>
+
+        <!-- Modale per editare Todo -->
+        <section v-show="editTodo.visibility" class="modal">
+            <div class="content">
+                <h3>Aggiorna il testo</h3>
+                <input type="text" 
+                    v-model="editTodo.text"
+                    @keyup.enter="updateTodo"
+                    ref="todoUp">
+                <div>
+                    <button class="add"@click="updateTodo">Aggiorna</button>
+                    <button class="add" @click="closeEdit">Annulla</button>
+                </div>
+            </div>
         </section>
 
     </div>
