@@ -14,6 +14,7 @@ const app = new Vue({
         ],
         indexImages: 0,
         intervalId: 0,
+        intervalHours:0,
         todos:[
             {
                 text: 'Decidere cosa inserire',
@@ -33,14 +34,14 @@ const app = new Vue({
         },
 
         orario:{
-            ora: 'ciao',
+            ora: '',
             minuti:''
         }
     },
 
     mounted(){                  // MEtodo scatenato da solo, in un momento di vita dell'appilcazine
         this.startLoop()                                // Creato quando viene generata l'istanza Vue
-        this.showDate()
+        this.startHour()
     },
 
     methods: {
@@ -134,6 +135,13 @@ const app = new Vue({
             }, 2000);
 
         }, 
+
+
+        startHour(){
+            this.intervalHours = setInterval(() =>{
+                this.showDate()
+            })
+        },
 
         //Funzione per orario attuale
         showDate(){
