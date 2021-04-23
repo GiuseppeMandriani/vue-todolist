@@ -22,7 +22,7 @@
         <header class="app-header slider">
             <!-- Images Slider -->  
             <h1>Welcome Guest</h1>
-            <h2>Sono le: {{ orario.ora }} : {{ orario.minuti}}</h2>
+            <h2>{{ orario.message }} Sono le: {{ orario.ora }} : {{ orario.minuti}}</h2>
         <div class="images">
             <img :src="images[indexImages]" alt="Nature-Img">
         </div>

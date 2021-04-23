@@ -35,7 +35,8 @@ const app = new Vue({
 
         orario:{
             ora: '',
-            minuti:''
+            minuti:'',
+            message:'',
         }
     },
 
@@ -148,6 +149,12 @@ const app = new Vue({
             this.orario = new Date();
             this.orario.ora = this.orario.getHours()
             this.orario.minuti = this.orario.getMinutes()
+
+            if(this.orario.ora <= 12 ){
+                this.orario.message = 'Good morning';
+            } else if (this.orario.ora >= 12){
+                this.orario.messsge = 'Good evening'
+            };
 
 
 
