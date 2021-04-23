@@ -30,12 +30,17 @@ const app = new Vue({
             visibility: false,
             text:'',
             index: null,
+        },
+
+        orario:{
+            ora: 'ciao',
+            minuti:''
         }
     },
 
     mounted(){                  // MEtodo scatenato da solo, in un momento di vita dell'appilcazine
         this.startLoop()                                // Creato quando viene generata l'istanza Vue
-
+        this.showDate()
     },
 
     methods: {
@@ -129,6 +134,16 @@ const app = new Vue({
             }, 2000);
 
         }, 
+
+        //Funzione per orario attuale
+        showDate(){
+            this.orario = new Date();
+            this.orario.ora = this.orario.getHours()
+            this.orario.minuti = this.orario.getMinutes()
+
+
+
+        }
 
     }
 });
