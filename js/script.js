@@ -138,25 +138,34 @@ const app = new Vue({
         }, 
 
 
+        // Funzioni per far partire l'orologio
+
+
         startHour(){
             this.intervalHours = setInterval(() =>{
                 this.showDate()
             })
         },
 
-        //Funzione per orario attuale
+        //Funzione per orario attuale e messaggio
         showDate(){
             this.orario = new Date();
             this.orario.ora = this.orario.getHours()
             this.orario.minuti = this.orario.getMinutes()
 
             if(this.orario.ora <= 12 ){
-                this.orario.message = 'Good morning';
+                this.orario.message = 'Good morning, Have a nice day!!';
             } else if (this.orario.ora >= 12){
-                this.orario.messsge = 'Good evening'
+                this.orario.messsge = 'Good evening!!'
             };
 
+            if(this.orario.ora < 10){
+                this.orario.ora = '0' + this.orario.getHours()
+            }
 
+            if(this.orario.minuti < 10 ){
+                this.orario.message = 'Good morning, Have a nice day!!';
+            };
 
         }
 

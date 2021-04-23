@@ -110,9 +110,8 @@ body{
     align-items: center;
     padding: 10px 0;
     border-bottom: 1px dotted #ccc;
+    /* max-width:100% */
 }
-
-
 
 
 .todos-container ul li.todo:last-child{
@@ -131,14 +130,16 @@ body{
 
 /* B con checkbox */
 
-.todo .text{
+.todos-container ul li.todo .text{
     position: relative;
     padding: 0 30px;  /* Per poter posizionare checkbox e se a capo rimanere in linea*/
+
+    /* Perchè? */
     max-width:90%;
     word-wrap: anywhere;
 }
 
-.todo .text:before{
+.todos-container ul li.todo .text:before{
     content: '';
     position: absolute;
     top: 2px;
@@ -147,18 +148,26 @@ body{
     height: 15px;
     border: 1px solid #ccc;
     transition: .4s;
+    cursor: pointer;
 }
 
-.todo .text.completed::before{
+.todos-container ul li.todo .text.completed::before{
     position: absolute;
     font-size: 1.2rem;
     color: #1ddde8;
     font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f00c"; 
+    border: 1px solid #000;
+
+}
+
+.icon i{
+    cursor: pointer;
+    
 }
 
 .icon i:first-child{
     margin-right: 5px;
-    font-size:14px;
+    font-size:13px;
 }
 
 

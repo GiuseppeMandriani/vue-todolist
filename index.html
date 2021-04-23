@@ -21,8 +21,9 @@
         <!-- HEADER -->
         <header class="app-header slider">
             <!-- Images Slider -->  
-            <h1>Welcome Guest</h1>
-            <h2>{{ orario.message }} Sono le: {{ orario.ora }} : {{ orario.minuti}}</h2>
+            <h1>Welcome Guest </h1>
+            <h2>Sono le: {{ orario.ora }} - {{ orario.minuti}}</h2>
+            <h2>{{ orario.message }} </h2>
         <div class="images">
             <img :src="images[indexImages]" alt="Nature-Img">
         </div>
@@ -31,7 +32,7 @@
         <!-- NUOVI TODO -->
         <section class="new-todo">
             <input type="text"
-                placeholder="Nuovo elemento To do"
+                placeholder="What is your main focus for today?"
                 v-model.trim="newTodo"
                 @keyup.enter="addTodo"
                 ref ="todoInput"
