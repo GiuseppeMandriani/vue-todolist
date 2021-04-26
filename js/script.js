@@ -164,7 +164,7 @@ const app = new Vue({
             }
 
             if(this.orario.minuti < 10 ){
-                this.orario.message = 'Good morning, Have a nice day!!';
+                this.orario.minuti = '0' + this.orario.getMinutes()
             };
 
         }
